@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>CodePen - Calculator</title>
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+
+ <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"> 
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+
+      <style>
+      @font-face {
+  font-family: myFirstFont;
+  src: local("Digital-7 Mono");
+}
+.emb {
+  position: absolute;
+  top: 255px;
+  left: 50px;
+}
+
+.oon {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.39);
+}
+
+h5 {
+  font-family: monospace !important;
+}
+
+.out {
+  background-color: rgba(39, 39, 39, 0.95);
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 500px;
+  height: 708px;
+  border-radius: 45px 45px 53px 53px;
+  box-shadow: 14px -12px 0px rgba(24, 26, 29, 0.7), 27px 16px 13px rgba(0, 0, 0, 0.4), 0px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px 0px 2px rgba(255, 255, 255, 0.5) inset;
+  position: relative;
+}
+
+.in {
+  background-color: rgba(168, 168, 168, 0.4);
+  display: block;
+  margin: 10% auto;
+  width: 450px;
+  height: 640px;
+  border-radius: 30px;
+  position: absolute;
+  top: -16px;
+  left: 19px;
+}
+
+.cal-d {
+  font-size: 113px;
+  font-family: "VT323",monospace;
+  position: absolute;
+  right: 10px;
+  bottom: -30px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.12);
+}
+
+.cal-e {
+  font-size: 113px;
+  font-family: "VT323",monospace;
+  position: absolute;
+  right: 10px;
+  bottom: -30px;
+  text-align: left;
+  color: black;
+}
+
+.scr-out {
+  height: 120px;
+  width: 440px;
+  position: absolute;
+  border-radius: 10px;
+  top: 107px;
+  left: 4px;
+  background-color: rgba(152, 151, 151, 0.91);
+  box-shadow: -9px 9px 10px rgba(0, 0, 0, 0.78) inset;
+}
+
+.brand {
+  text-align: right;
+  color: rgba(212, 212, 212, 0.48);
+  position: absolute;
+  top: 22px;
+  right: 14px;
+}
+
+.scr-in {
+  height: 90px;
+  width: 420px;
+  position: relative;
+  top: 11px;
+  left: 10.5px;
+  background-color: #C7CEB5;
+  box-shadow: 5px -6px 8px black inset;
+}
+
+.scr-in-on {
+  background-color: #cee889;
+}
+
+.btn-frame {
+  height: 330px;
+  width: 410px;
+  position: absolute;
+  left: 8px;
+  bottom: 31px;
+}
+
+.btn-txt {
+  position: relative;
+  top: 11px;
+  left: 0px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.sn {
+  top: 10px;
+  left: 0px;
+}
+
+.btnn {
+  border-radius: .25rem;
+  width: 80px;
+  height: 50px;
+  border: none;
+  background-color: #cecece;
+  box-shadow: -5px 4px 1px #262424 inset, 1px -1px 0px;
+}
+
+.btnn:active,
+.btnn:focus,
+input,
+input:active,
+input:focus {
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+}
+
+.btnn:active {
+  box-shadow: -2px 2px 1px #262424 inset, 1px -1px 0px;
+  transform: translate(4px, -4px);
+}
+
+.corner-l-b {
+  border-radius: 5px 5px 5px 20px;
+}
+
+.plus-btn {
+  height: 120px;
+  border-radius: 5px 5px 20px 5px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.col-1 {
+  position: absolute;
+  left: 0;
+}
+
+.col-2 {
+  position: absolute;
+  left: 107px;
+}
+
+.col-3 {
+  position: absolute;
+  left: 214px;
+}
+
+.col-4 {
+  position: absolute;
+  left: 321px;
+}
+
+.row-1 {
+  bottom: 0;
+}
+
+.row-2 {
+  bottom: 70px;
+}
+
+.row-3 {
+  bottom: 140px;
+}
+
+.row-4 {
+  bottom: 210px;
+}
+
+.row-5 {
+  bottom: 280px;
+}
+
+.corner-t-l {
+  border-radius: 20px 5px 5px 5px;
+}
+
+.corner-t-r {
+  border-radius: 5px 20px 5px 5px;
+}
+
+.c-button {
+  background-color: #ff7f21;
+}
+
+.brand {
+  text-align: right;
+  color: rgba(248, 248, 248, 0.58);
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
+@media screen and (max-width: 550px) {
+  .out {
+    transform: scale(0.7);
+  }
+}
+@media screen and (max-width: 380px) {
+  .out {
+    transform: scale(0.5);
+  }
+}
+
+    </style>
+
+  
+  
+  
+  
+</head>
+
+<body translate="no" >
+
+  <div class="container-fluid">
+  
+  <div class="frame">
+    
+    <div class="out">
+      <div class="in">
+        
+        <div class="brand"><h5>ssm123ssm</h5></div>
+      
+        <div class="scr-out"><div class="scr-in"></div><p class="cal-d">888888888<p>
+        <p class="cal-e">888888888<p>
+        </div>
+        
+        <div class="emb"><p class="oon">ON</p></div>
+        <div class="btn-frame">
+        
+          <div class="col-1 row-1">
+          <button class="btnn corner-l-b d0"><div class="btn-txt sn"><p>0</p></div></button>
+          </div>
+          <div class="col-2 row-1">
+          <button class="btnn corner-b d-dot"><div class="btn-txt sn"><p>.</p></div></button>
+          </div>
+          
+          <div class="col-3 row-1">
+          <button class="btnn corner-b d-eq"><div class="btn-txt sn"><p>=</p></div></button>
+          </div>
+          
+          <div class="col-1 row-2">
+          <button class="btnn corner-b d-1"><div class="btn-txt sn"><p>1</p></div></button>
+          </div>
+          
+          <div class="col-2 row-2">
+          <button class="btnn corner-b d-2"><div class="btn-txt sn"><p>2</p></div></button>
+          </div>
+          
+          <div class="col-3 row-2">
+          <button class="btnn corner-b d-3"><div class="btn-txt sn"><p>3</p></div></button>
+          </div>
+          
+          <div class="col-4 row-1">
+          <button class="btnn plus-btn d-plus">+</button>
+          </div>
+          
+          <div class="col-1 row-3">
+          <button class="btnn corner-b d-4"><div class="btn-txt sn"><p>4</p></div></button>
+          </div>
+          <div class="col-2 row-3">
+          <button class="btnn corner-b d-5"><div class="btn-txt sn"><p>5</p></div></button>
+          </div>
+          <div class="col-3 row-3">
+          <button class="btnn corner-b d-6"><div class="btn-txt sn"><p>6</p></div></button>
+          </div>
+          <div class="col-1 row-4">
+          <button class="btnn corner-b d-7"><div class="btn-txt sn"><p>7</p></div></button>
+          </div>
+          <div class="col-2 row-4">
+          <button class="btnn corner-b d-8"><div class="btn-txt sn"><p>8</p></div></button>
+          </div>
+          <div class="col-3 row-4">
+          <button class="btnn corner-b d-9"><div class="btn-txt sn"><p>9</p></div></button>
+          </div>
+          <div class="col-4 row-3">
+          <button class="btnn corner-b d-min"><div class="btn-txt sn"><p>-</p></div></button>
+          </div>
+          <div class="col-4 row-4">
+          <button class="btnn corner-b d-mul"><div class="btn-txt sn"><p>x</p></div></button>
+          </div>
+          <div class="col-1 row-5">
+          <button class="c-button btnn d-c"><div class="btn-txt sn on"><p>AC</p></div></button>
+          </div>
+          <div class="col-3 row-5">
+            <button class="btnn corner-b off"><div class="btn-txt"><p>OFF</p></div></button>
+          </div>
+          <div class="col-2 row-5">
+          <button class="btnn corner-b c"><div class="btn-txt"><p>C</p></div></button>
+          </div>
+          <div class="col-4 row-5">
+          <button class="btnn d-div"><div class="btn-txt sn"><p>&divide;</p></div></button>
+          </div>
+          
+          
+          
+          
+          
+        
+          
+        </div>
+      
+      </div>
+      
+      
+    </div>
+    
+  </div>
+  
+</div>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+
+    <script>
+    
+$(document).ready(function() {
+  
+  on();
+  
+  
+  var display = 0;
+  var op = false;
+  var last_op = undefined;
+  var dot = false;
+
+  $(".off").click(off);
+  
+  
+  $(".d-c").on("click", function(){
+    
+   display = 0;
+   op = false;
+   last_op = undefined;
+   dot = false;
+    on();
+  });
+
+  $(".d0").on("click",function(){
+    apnd(0);
+    
+  });
+  $(".d-1").on("click",function(){
+    apnd(1);
+  });
+  $(".d-2").on("click",function(){
+    apnd(2);
+  });
+  $(".d-3").on("click",function(){
+    apnd(3);
+  });
+  $(".d-4").on("click",function(){
+    apnd(4);
+  });
+  $(".d-5").on("click",function(){
+    apnd(5);
+  });
+  $(".d-6").on("click",function(){
+    apnd(6);
+  });
+  $(".d-7").on("click",function(){
+    apnd(7);
+  });
+  $(".d-8").on("click",function(){
+    apnd(8);
+  });
+  $(".d-9").on("click",function(){
+    apnd(9);
+  });
+  $(".d-dot").on("click",function(){
+    if($(".cal-e").html().indexOf(".")<0 || op){
+    if(op){
+      apnd("0.");
+    }
+    else apnd(".");
+    }
+    //op = false;
+  });
+  
+  $(".d-plus").on("click",function(){
+    plus();
+  });
+  
+  $(".d-eq").on("click",function(){
+   
+    eq(parseFloat($(".cal-e").html()));
+   // display = 0;
+    op = true;
+    last_op = undefined;
+    
+  });
+  $(".d-min").on("click", function(){
+    minus();
+  });
+  $(".d-mul").on("click", function(){
+    mul();
+  });
+  $(".d-div").on("click", function(){
+    div();
+  });
+  $(".c").on("click",function(){
+    $(".cal-e").html("0");
+  });
+  
+  function off() {
+    $(".cal-d").css("display", "none");
+    $(".cal-e").css("display", "none");
+    $(".scr-in").removeClass("scr-in-on");
+  }
+  function on() {
+    $(".cal-d").css("display", "");
+    $(".cal-e").css("display", "");
+    $(".scr-in").addClass("scr-in-on");
+    setTimeout(function(){
+      $(".cal-e").html("0");
+    }, 00);
+    eq(0);
+  }
+  function apnd(val){
+    var cur = parseFloat($(".cal-e").html());
+    if(($(".cal-e").html().indexOf(".")>=0 && ($(".cal-e").html().length <=8 || op)) || ($(".cal-e").html().length<= 7 || op )){
+      
+      if(cur != 0 && !op){
+      $(".cal-e").append(val); 
+    }
+      else if(cur != 0 && op){
+        $(".cal-e").html(val);
+        op = false;
+      }     
+    else{
+      if($(".cal-e").html().indexOf(".")>=0){
+        $(".cal-e").append(val);
+      } 
+      else if(val =="."){
+        $(".cal-e").append(val);
+      }
+      else if(val != 0){
+        $(".cal-e").html(val);
+      }
+    }
+    }
+  }
+  function plus(){
+    if(!op){eq(parseFloat($(".cal-e").html()));}
+    op = true;
+    last_op = "plus";
+  }
+   function minus(){
+     
+     if(!op){eq(parseFloat($(".cal-e").html()));}
+
+    op = true;
+    last_op = "minus";
+          
+  }
+  function mul(){
+    if(!op){eq(parseFloat($(".cal-e").html()));}
+    op = true;
+    last_op = "mul";
+  }
+  function div(){
+     if(!op){eq(parseFloat($(".cal-e").html()));}
+   // display -= parseInt($(".cal-e").html());
+    //$(".cal-e").html(display);
+    op = true;
+    last_op = "div";
+  }
+  function eq(val){
+    if(last_op == undefined){
+      display = val;
+    }
+    if(last_op == "plus"){
+      display += val;
+      format(display);
+      $(".cal-e").html(display);
+    }
+    if(last_op == "minus"){
+     display -= val;
+      format(display);
+      $(".cal-e").html(display);
+    }
+    if(last_op == "mul"){
+     display *= val;
+     format(display);
+      $(".cal-e").html(display);
+    }
+    if(last_op == "div"){
+     display /= val;
+     format(display);
+     $(".cal-e").html(display);
+    }
+      //display = 0;
+      //op = true;
+      //last_op = "";
+  }
+  function format(val){
+    console.log(val.toString());
+    
+    var main, dec, des;
+    if(val.toString().indexOf(".")>=0){
+      main = val.toString().split(".")[0].length;
+      dec = val.toString().split(".")[1].length;
+      
+    }
+    else{
+      main = val.toString().length;
+      dec = 0;
+    }
+    des = 8- main;
+    //console.log("main: " + main);
+    //console.log("dec : " + dec);
+    //console.log("des : " + des);
+    
+    if(main > 8){
+      if(val.toString().split("")[0] == "-"){
+      //  console.log("Too Small");
+        display = "TOO SMALL";
+      }
+      else{
+      //  console.log("returning error");
+      display="err";
+      }
+    }
+    
+    else{
+      var ret = Number((val).toFixed(des));
+    //  console.log(ret);  
+      display = ret;
+    }
+    
+    
+  }
+});
+  </script>
+
+  
+  
+
+</body>
+</html>
+ 
